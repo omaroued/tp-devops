@@ -4,11 +4,12 @@ pipeline {
   }
   agent any
   stages {
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/omaroued/tp-devops.git'
-      }
-    }
+    stage('Pull from GitHub') {
+            steps {
+                git url: 'https://github.com/omaroued/tp-devops.git', branch: 'main'
+                
+            }
+        }
     stage('Building image') {
       steps{
         script {
