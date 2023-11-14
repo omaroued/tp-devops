@@ -12,7 +12,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          sh "ls"
+          sh "cat Jenkinsfile"
           sh  "docker build -t $registry:$BUILD_NUMBER -f docker/Dockerfile ."
         }
       }
