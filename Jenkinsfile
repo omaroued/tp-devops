@@ -12,7 +12,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          sh  "docker build -t $registry:$BUILD_NUMBER ."
+          sh  "docker build -t $registry:$BUILD_NUMBER -f docker/Dockerfile ."
         }
       }
     }
