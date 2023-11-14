@@ -5,11 +5,10 @@ pipeline {
   agent any
   stages {
     stage('Pull from GitHub') {
-            steps {
-                git url: 'https://github.com/omaroued/tp-devops.git', branch: 'main'
-                
-            }
+        steps {
+            git url: 'https://github.com/omaroued/tp-devops.git', branch: 'main'  
         }
+    }
     stage('Building image') {
       steps{
         script {
@@ -28,7 +27,6 @@ pipeline {
       steps {
         script {
           sh "kubectl config use-context minikube"
-
           sh """
           kubectl set image deployment/nestjs-app nestjs-app=${registry}:${BUILD_NUMBER} 
           """
