@@ -19,8 +19,7 @@ pipeline {
      stage('Pushing to DockerHub') {
       steps {
         script {
-           def image = docker.image(registry + ":$BUILD_NUMBER")
-           image.push()
+             sh "docker push $registry:$BUILD_NUMBER"        
         }
       }
     }
